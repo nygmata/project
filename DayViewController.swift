@@ -133,7 +133,6 @@ class TuesdayViewController: UITableViewController {
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
-        print(1111111)
         guard let cell = sender.view as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
@@ -215,7 +214,6 @@ class WednesdayViewController: UITableViewController {
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
-        print(1111111)
         guard let cell = sender.view as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
@@ -297,7 +295,6 @@ class ThursdayViewController: UITableViewController {
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
-        print(1111111)
         guard let cell = sender.view as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
@@ -380,7 +377,6 @@ class FridayViewController: UITableViewController {
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
-        print(1111111)
         guard let cell = sender.view as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
@@ -462,7 +458,6 @@ class SaturdayViewController: UITableViewController {
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
-        print(1111111)
         guard let cell = sender.view as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
@@ -544,7 +539,6 @@ class SundayViewController: UITableViewController {
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
-        print(1111111)
         guard let cell = sender.view as? UITableViewCell else { return }
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 

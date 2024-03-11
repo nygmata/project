@@ -14,13 +14,43 @@ class WeekViewController: UIViewController {
     var thirdButton = UIButton()
     var forthButton = UIButton()
     
+    let n = 4
+    var buttons: [UIButton] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.lightGray
-        configureFirstButton()
-        configureSecondButton()
-        configureThirdButton()
-        configureForthButton()
+        
+//        configureFirstButton()
+//        configureSecondButton()
+//        configureThirdButton()
+//        configureForthButton()
+    
+        for num in 1...n {
+            buttons.append(UIButton())
+            let button: UIButton = buttons[num-1]
+            view.addSubview(button)
+            button.setTitle("Week" + String(num), for: .normal)
+            button.setTitleColor(.darkGray, for: .normal)
+            button.titleLabel?.font = Constants.titleFont
+            button.backgroundColor = Constants.blue
+            button.layer.cornerRadius = Constants.corners
+            button.layer.borderColor = Constants.grape
+            button.layer.borderWidth = Constants.borderWidth
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            if num == 1 {
+                NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)])
+            } else {
+                NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: buttons[num-2].bottomAnchor, constant: 0.4)])
+            }
+                NSLayoutConstraint.activate([
+                    button.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    button.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    button.heightAnchor.constraint(equalToConstant: Constants.height)
+                ])
+            button.addTarget(self, action: #selector(thirdButtonPressed), for: .touchUpInside)
+        }
     }
     
     func configureFirstButton() {
