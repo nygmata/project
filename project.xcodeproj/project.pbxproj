@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */; };
 		FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399992B7BDDAD00ECA39F /* SceneDelegate.swift */; };
-		FB13999C2B7BDDAD00ECA39F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13999B2B7BDDAD00ECA39F /* ViewController.swift */; };
+		FB13999C2B7BDDAD00ECA39F /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13999B2B7BDDAD00ECA39F /* WeekViewController.swift */; };
 		FB13999F2B7BDDAD00ECA39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB13999D2B7BDDAD00ECA39F /* Main.storyboard */; };
 		FB1399A12B7BDDAF00ECA39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1399A02B7BDDAF00ECA39F /* Assets.xcassets */; };
 		FB1399A42B7BDDAF00ECA39F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1399A22B7BDDAF00ECA39F /* LaunchScreen.storyboard */; };
 		FB1399AF2B7BDDAF00ECA39F /* projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399AE2B7BDDAF00ECA39F /* projectTests.swift */; };
 		FB1399B92B7BDDAF00ECA39F /* projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399B82B7BDDAF00ECA39F /* projectUITests.swift */; };
 		FB1399BB2B7BDDAF00ECA39F /* projectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399BA2B7BDDAF00ECA39F /* projectUITestsLaunchTests.swift */; };
+		FB1399C92B7BDF1600ECA39F /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB1399C82B7BDF1600ECA39F /* CalendarKit */; };
+		FB1399CB2B7CBE1F00ECA39F /* FirstWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399CA2B7CBE1F00ECA39F /* FirstWeekViewController.swift */; };
+		FB1399CD2B7CBF1C00ECA39F /* SecondWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399CC2B7CBF1C00ECA39F /* SecondWeekViewController.swift */; };
+		FB1399CF2B7CBFA700ECA39F /* ThirdWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */; };
+		FB1399D12B7CBFC800ECA39F /* ForthWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399D02B7CBFC800ECA39F /* ForthWeekViewController.swift */; };
+		FB1399D32B7F394800ECA39F /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399D22B7F394800ECA39F /* DayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +45,7 @@
 		FB1399942B7BDDAD00ECA39F /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB1399992B7BDDAD00ECA39F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB13999B2B7BDDAD00ECA39F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB13999B2B7BDDAD00ECA39F /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		FB13999E2B7BDDAD00ECA39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB1399A02B7BDDAF00ECA39F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1399A32B7BDDAF00ECA39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,11 @@
 		FB1399B42B7BDDAF00ECA39F /* projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1399B82B7BDDAF00ECA39F /* projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITests.swift; sourceTree = "<group>"; };
 		FB1399BA2B7BDDAF00ECA39F /* projectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FB1399CA2B7CBE1F00ECA39F /* FirstWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWeekViewController.swift; sourceTree = "<group>"; };
+		FB1399CC2B7CBF1C00ECA39F /* SecondWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWeekViewController.swift; sourceTree = "<group>"; };
+		FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdWeekViewController.swift; sourceTree = "<group>"; };
+		FB1399D02B7CBFC800ECA39F /* ForthWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthWeekViewController.swift; sourceTree = "<group>"; };
+		FB1399D22B7F394800ECA39F /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1399C92B7BDF1600ECA39F /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +91,11 @@
 		FB13998B2B7BDDAD00ECA39F = {
 			isa = PBXGroup;
 			children = (
+				FB1399D22B7F394800ECA39F /* DayViewController.swift */,
+				FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */,
+				FB1399D02B7CBFC800ECA39F /* ForthWeekViewController.swift */,
+				FB1399CA2B7CBE1F00ECA39F /* FirstWeekViewController.swift */,
+				FB1399CC2B7CBF1C00ECA39F /* SecondWeekViewController.swift */,
 				FB1399962B7BDDAD00ECA39F /* project */,
 				FB1399AD2B7BDDAF00ECA39F /* projectTests */,
 				FB1399B72B7BDDAF00ECA39F /* projectUITests */,
@@ -101,7 +118,7 @@
 			children = (
 				FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */,
 				FB1399992B7BDDAD00ECA39F /* SceneDelegate.swift */,
-				FB13999B2B7BDDAD00ECA39F /* ViewController.swift */,
+				FB13999B2B7BDDAD00ECA39F /* WeekViewController.swift */,
 				FB13999D2B7BDDAD00ECA39F /* Main.storyboard */,
 				FB1399A02B7BDDAF00ECA39F /* Assets.xcassets */,
 				FB1399A22B7BDDAF00ECA39F /* LaunchScreen.storyboard */,
@@ -143,6 +160,9 @@
 			dependencies = (
 			);
 			name = project;
+			packageProductDependencies = (
+				FB1399C82B7BDF1600ECA39F /* CalendarKit */,
+			);
 			productName = project;
 			productReference = FB1399942B7BDDAD00ECA39F /* project.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +235,9 @@
 				Base,
 			);
 			mainGroup = FB13998B2B7BDDAD00ECA39F;
+			packageReferences = (
+				FB1399C72B7BDF1600ECA39F /* XCRemoteSwiftPackageReference "CalendarKit" */,
+			);
 			productRefGroup = FB1399952B7BDDAD00ECA39F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,9 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB13999C2B7BDDAD00ECA39F /* ViewController.swift in Sources */,
+				FB1399CF2B7CBFA700ECA39F /* ThirdWeekViewController.swift in Sources */,
+				FB1399CD2B7CBF1C00ECA39F /* SecondWeekViewController.swift in Sources */,
+				FB13999C2B7BDDAD00ECA39F /* WeekViewController.swift in Sources */,
 				FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */,
 				FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */,
+				FB1399CB2B7CBE1F00ECA39F /* FirstWeekViewController.swift in Sources */,
+				FB1399D12B7CBFC800ECA39F /* ForthWeekViewController.swift in Sources */,
+				FB1399D32B7F394800ECA39F /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +467,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = project/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Allow usage of calendar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -466,6 +495,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = project/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Allow usage of calendar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -596,6 +626,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB1399C72B7BDF1600ECA39F /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB1399C82B7BDF1600ECA39F /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB1399C72B7BDF1600ECA39F /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB13998C2B7BDDAD00ECA39F /* Project object */;
 }
