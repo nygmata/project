@@ -1,6 +1,6 @@
 import UIKit
 
-class Button: UIButton {
+class Button2: UIButton {
     
     init(title: String, font: UIFont, backgroundColor: UIColor, borderColor: CGColor, action buttonPressed: () -> Void) {
         super.init(frame: .zero)

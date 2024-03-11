@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EA2B9F7807002DE69A /* WeekViewController.swift */; };
+		B939B0ED2B9F8352002DE69A /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EC2B9F8352002DE69A /* WeekView.swift */; };
+		B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EE2B9F83AF002DE69A /* ToolBar.swift */; };
+		B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0F02B9F83ED002DE69A /* Buttons.swift */; };
 		B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */; };
 		B9ED6DF82B9F598D00C33173 /* WeeksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ED6DF72B9F598D00C33173 /* WeeksPresenter.swift */; };
 		FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */; };
@@ -45,6 +48,9 @@
 
 /* Begin PBXFileReference section */
 		B939B0EA2B9F7807002DE69A /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		B939B0EC2B9F8352002DE69A /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		B939B0EE2B9F83AF002DE69A /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+		B939B0F02B9F83ED002DE69A /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksViewController.swift; sourceTree = "<group>"; };
 		B9ED6DF72B9F598D00C33173 /* WeeksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksPresenter.swift; sourceTree = "<group>"; };
 		FB1399942B7BDDAD00ECA39F /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +134,9 @@
 		FB13998B2B7BDDAD00ECA39F = {
 			isa = PBXGroup;
 			children = (
+				B939B0F02B9F83ED002DE69A /* Buttons.swift */,
+				B939B0EE2B9F83AF002DE69A /* ToolBar.swift */,
+				B939B0EC2B9F8352002DE69A /* WeekView.swift */,
 				B939B0E92B9F6EEE002DE69A /* data */,
 				B9ED6DF12B9F570E00C33173 /* ui */,
 				FB1399D22B7F394800ECA39F /* DayViewController.swift */,
@@ -322,10 +331,13 @@
 				FB1399CF2B7CBFA700ECA39F /* ThirdWeekViewController.swift in Sources */,
 				FB1399CD2B7CBF1C00ECA39F /* SecondWeekViewController.swift in Sources */,
 				FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */,
+				B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */,
+				B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */,
 				FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */,
 				FB1399CB2B7CBE1F00ECA39F /* FirstWeekViewController.swift in Sources */,
 				FB1399D12B7CBFC800ECA39F /* ForthWeekViewController.swift in Sources */,
 				B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */,
+				B939B0ED2B9F8352002DE69A /* WeekView.swift in Sources */,
 				B9ED6DF82B9F598D00C33173 /* WeeksPresenter.swift in Sources */,
 				B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */,
 				FB1399D32B7F394800ECA39F /* DayViewController.swift in Sources */,

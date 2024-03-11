@@ -6,7 +6,6 @@ class ToolBar: UIToolbar {
         super.init(frame: .zero)
         let btn = UIButton(type: .custom)
         btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        btn.
         let mondayButton = UIBarButtonItem(title: "M", style: .plain, target: self, action: #selector(action))
         
         let tuesdayButton = UIBarButtonItem(title: "T", style: .plain, target: self, action: #selector(action))

@@ -1,15 +1,15 @@
 import UIKit
 
-class WeekViewController: UIViewController {
-    var buttons : [Button] = []
+class WeekViewController2: UIViewController {
+    var buttons : [Button2] = []
     var toolBar : [ToolBar] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
-        buttons.append(Button(title: "Main Week Goals", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: goalsButtonPressed))
-        buttons.append(Button(title: "Week Results", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: resultsButtonPressed))
-        buttons.append(Button(title: "Week Improvements", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: improvementsButtonPressed))
+        buttons.append(Button2(title: "Main Week Goals", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: goalsButtonPressed))
+        buttons.append(Button2(title: "Week Results", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: resultsButtonPressed))
+        buttons.append(Button2(title: "Week Improvements", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: improvementsButtonPressed))
         toolBar.append(ToolBar(action: toolBarPressed))
         
         configureButton(index: 0)
