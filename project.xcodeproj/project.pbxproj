@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EA2B9F7807002DE69A /* WeekViewController.swift */; };
 		B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */; };
 		B9ED6DF82B9F598D00C33173 /* WeeksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ED6DF72B9F598D00C33173 /* WeeksPresenter.swift */; };
 		FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */; };
 		FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399992B7BDDAD00ECA39F /* SceneDelegate.swift */; };
-		FB13999C2B7BDDAD00ECA39F /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13999B2B7BDDAD00ECA39F /* WeekViewController.swift */; };
 		FB13999F2B7BDDAD00ECA39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB13999D2B7BDDAD00ECA39F /* Main.storyboard */; };
 		FB1399A12B7BDDAF00ECA39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1399A02B7BDDAF00ECA39F /* Assets.xcassets */; };
 		FB1399A42B7BDDAF00ECA39F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1399A22B7BDDAF00ECA39F /* LaunchScreen.storyboard */; };
@@ -44,12 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B939B0EA2B9F7807002DE69A /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksViewController.swift; sourceTree = "<group>"; };
 		B9ED6DF72B9F598D00C33173 /* WeeksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksPresenter.swift; sourceTree = "<group>"; };
 		FB1399942B7BDDAD00ECA39F /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB1399992B7BDDAD00ECA39F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB13999B2B7BDDAD00ECA39F /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		FB13999E2B7BDDAD00ECA39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB1399A02B7BDDAF00ECA39F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1399A32B7BDDAF00ECA39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +92,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B939B0E92B9F6EEE002DE69A /* data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		B9ED6DF12B9F570E00C33173 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */,
+				B939B0EA2B9F7807002DE69A /* WeekViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -117,17 +125,10 @@
 			path = presenter;
 			sourceTree = "<group>";
 		};
-		B9ED6DF42B9F57D900C33173 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		FB13998B2B7BDDAD00ECA39F = {
 			isa = PBXGroup;
 			children = (
-				B9ED6DF42B9F57D900C33173 /* model */,
+				B939B0E92B9F6EEE002DE69A /* data */,
 				B9ED6DF12B9F570E00C33173 /* ui */,
 				FB1399D22B7F394800ECA39F /* DayViewController.swift */,
 				FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */,
@@ -156,7 +157,6 @@
 			children = (
 				FB1399972B7BDDAD00ECA39F /* AppDelegate.swift */,
 				FB1399992B7BDDAD00ECA39F /* SceneDelegate.swift */,
-				FB13999B2B7BDDAD00ECA39F /* WeekViewController.swift */,
 				FB13999D2B7BDDAD00ECA39F /* Main.storyboard */,
 				FB1399A02B7BDDAF00ECA39F /* Assets.xcassets */,
 				FB1399A22B7BDDAF00ECA39F /* LaunchScreen.storyboard */,
@@ -321,13 +321,13 @@
 			files = (
 				FB1399CF2B7CBFA700ECA39F /* ThirdWeekViewController.swift in Sources */,
 				FB1399CD2B7CBF1C00ECA39F /* SecondWeekViewController.swift in Sources */,
-				FB13999C2B7BDDAD00ECA39F /* WeekViewController.swift in Sources */,
 				FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */,
 				FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */,
 				FB1399CB2B7CBE1F00ECA39F /* FirstWeekViewController.swift in Sources */,
 				FB1399D12B7CBFC800ECA39F /* ForthWeekViewController.swift in Sources */,
 				B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */,
 				B9ED6DF82B9F598D00C33173 /* WeeksPresenter.swift in Sources */,
+				B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */,
 				FB1399D32B7F394800ECA39F /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
