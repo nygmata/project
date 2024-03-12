@@ -10,14 +10,17 @@ class Button2: UIButton {
         layer.borderColor = borderColor
         
         setTitleColor(.darkGray, for: .normal)
-        layer.cornerRadius = 10
-        layer.borderWidth = 2
+        layer.cornerRadius = Constants.corners
+        layer.borderWidth = Constants.borderWidth
         addTarget(self, action: #selector(action), for: .touchUpInside)
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    enum Constants {
+        static let corners: CGFloat = 20
+        static let borderWidth: CGFloat = 2
+    }
 }
