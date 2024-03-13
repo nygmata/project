@@ -16,9 +16,9 @@ class WeekViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         
-        buttons.append(Button2(title: "Main Week Goals", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: goalsButtonPressed))
-        buttons.append(Button2(title: "Week Results", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: resultsButtonPressed))
-        buttons.append(Button2(title: "Week Improvements", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape, action: improvementsButtonPressed))
+        buttons.append(Button2(title: "Main Week Goals", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape))
+        buttons.append(Button2(title: "Week Results", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape))
+        buttons.append(Button2(title: "Week Improvements", font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape))
         
         configureButton(index: 0)
         configureButton(index: 1)
@@ -28,7 +28,7 @@ class WeekViewController: UIViewController {
     }
     
     func configureToolBar() {
-        let toolBarButtons = ToolBar(action: toolBarPressed)
+        let toolBarButtons = ToolBar()
         let toolbar = UIToolbar(frame: CGRectMake(0, 100, view.frame.width, 50))
  
         toolbar.barTintColor = Constants.goalsPink
@@ -40,15 +40,31 @@ class WeekViewController: UIViewController {
         toolbar.items = [toolBarButtons.mondayButton, toolBarButtons.tuesdayButton, toolBarButtons.wednesdayButton, toolBarButtons.thursdayButton, toolBarButtons.fridayButton, toolBarButtons.saturdayButton, toolBarButtons.sundayButton]
         view.addSubview(toolbar)
     }
-    
     @objc
-    func toolBarPressed() {
-        //present(GoalsViewController(), animated: true)
+    func toolBarPressed(sender: UIButton) {
+        let index = sender.tag
+        print(index)
+        switch index {
+            case 0:
+                present(MondayViewController(), animated: true)
+            case 1:
+                present(TuesdayViewController(), animated: true)
+            case 2:
+                present(WednesdayViewController(), animated: true)
+            case 3:
+                present(ThursdayViewController(), animated: true)
+            case 4:
+                present(FridayViewController(), animated: true)
+            case 5:
+                present(SaturdayViewController(), animated: true)
+            default:
+                present(SundayViewController(), animated: true)
+        }
+        
     }
  
     func configureButton(index: Int) {
         view.addSubview(buttons[index])
-        print(buttons[index].backgroundColor == Constants.goalsPink)
         buttons[index].translatesAutoresizingMaskIntoConstraints = false
         if (index == 0) {
             
@@ -66,22 +82,31 @@ class WeekViewController: UIViewController {
             buttons[index].trailingAnchor.constraint(equalTo: view.trailingAnchor),
             buttons[index].heightAnchor.constraint(equalToConstant: Constants.height)
         ])
-        
+        if (index == 0) {
+            buttons[index].addTarget(self, action: #selector(goalsButtonPressed), for: .touchUpInside)
+        } else if (index == 1) {
+            buttons[index].addTarget(self, action: #selector(resultsButtonPressed), for: .touchUpInside)
+        } else {
+            buttons[index].addTarget(self, action: #selector(improvementsButtonPressed), for: .touchUpInside)
+        }
     }
     
     @objc
-    func goalsButtonPressed() {
-        //present(GoalsViewController(), animated: true)
+    public func goalsButtonPressed()  {
+        print("goals")
+        present(GoalsViewController(), animated: true)
     }
     
     @objc
-    func resultsButtonPressed() {
-        //present(GoalsViewController(), animated: true)
+    public func resultsButtonPressed() {
+        print("results")
+        present(ResultsViewController(), animated: true)
     }
     
     @objc
-    func improvementsButtonPressed() {
-        //present(GoalsViewController(), animated: true)
+    public func improvementsButtonPressed() {
+        print("improve")
+        present(ImprovementViewController(), animated: true)
     }
     
     enum Constants {
@@ -95,4 +120,3 @@ class WeekViewController: UIViewController {
         
     }
 }
-
