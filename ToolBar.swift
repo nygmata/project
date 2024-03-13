@@ -10,8 +10,9 @@ class ToolBar: UIView {
     var saturdayButton = UIBarButtonItem()
     var sundayButton = UIBarButtonItem()
     
-    init(action buttonPressed: () -> Void) {
+    init() {
         super.init(frame: .zero)
+        
         mondayButton = UIBarButtonItem(customView: getButton(title: "M"))
         tuesdayButton = UIBarButtonItem(customView: getButton(title: "T"))
         wednesdayButton = UIBarButtonItem(customView: getButton(title: "W"))
@@ -19,14 +20,16 @@ class ToolBar: UIView {
         fridayButton = UIBarButtonItem(customView: getButton(title: "F"))
         saturdayButton = UIBarButtonItem(customView: getButton(title: "S"))
         sundayButton = UIBarButtonItem(customView: getButton(title: "S"))
+        
     }
     
     func getButton(title: String) -> UIButton {
         let btn1 = UIButton(type: .custom)
+        let week: WeekViewController
         
         btn1.backgroundColor = .lightGray
         btn1.frame = CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height)
-        btn1.addTarget(self, action: #selector(action), for: .touchUpInside)
+        btn1.addTarget(self, action: #selector(week.toolBarPressed), for: .touchUpInside)
         btn1.setTitle(title, for: .normal)
         btn1.titleLabel?.font = Constants.titleFont
         btn1.layer.borderColor = Constants.grape
@@ -35,7 +38,6 @@ class ToolBar: UIView {
         
         return btn1
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
