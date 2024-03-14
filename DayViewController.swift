@@ -18,8 +18,47 @@ class MondayViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
         
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntityMonday> = CellEntityMonday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntityMonday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +90,8 @@ class MondayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
             
         }
         
@@ -75,7 +115,51 @@ class TuesdayViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
+    }
+    func createCells() {
+        for time in times {
+            cells.append(Cell(time: time, description: ""))
+        }
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntityTuesday> = CellEntityTuesday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntityTuesday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +191,8 @@ class TuesdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            //self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -129,7 +214,53 @@ class WednesdayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+      
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
+    }
+    
+    func createCells() {
+        for time in times {
+            cells.append(Cell(time: time, description: ""))
+        }
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntityWednesday> = CellEntityWednesday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntityWednesday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,7 +292,8 @@ class WednesdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            //self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -183,7 +315,53 @@ class ThursdayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+       
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
+    }
+    
+    func createCells() {
+        for time in times {
+            cells.append(Cell(time: time, description: ""))
+        }
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntityThursday> = CellEntityThursday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntityThursday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -215,7 +393,8 @@ class ThursdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            //self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -238,7 +417,53 @@ class FridayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+        
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
+    }
+    
+    func createCells() {
+        for time in times {
+            cells.append(Cell(time: time, description: ""))
+        }
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntityFriday> = CellEntityFriday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntityFriday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -270,7 +495,8 @@ class FridayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            //self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -292,7 +518,53 @@ class SaturdayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
+    }
+    
+    func createCells() {
+        for time in times {
+            cells.append(Cell(time: time, description: ""))
+        }
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntitySaturday> = CellEntitySaturday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntitySaturday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -324,7 +596,8 @@ class SaturdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            //self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -346,7 +619,52 @@ class SundayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells)
+        loadCellData(cells: [Cell]())
+        //cellManagement.loadCellData(&cells)
+    }
+    
+    func createCells() {
+        for time in times {
+            cells.append(Cell(time: time, description: ""))
+        }
+    }
+    
+    public func loadCellData(cells: [Cell]) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest: NSFetchRequest<CellEntitySunday> = CellEntitySunday.fetchRequest()
+
+        do {
+            let cellEntities = try context.fetch(fetchRequest)
+            for cellEntity in cellEntities {
+                
+                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
+                
+                if let index = timeToIndex[cell.time] {
+                    self.cells[index] = cell
+                }
+            }
+        } catch let error {
+            print("Error fetching cell data: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func saveCellData(time: String, description: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let cellEntity = CellEntitySunday(context: context)
+        cellEntity.time = time
+        cellEntity.descriptionAtr = description
+
+        do {
+            try context.save()
+        } catch let error {
+            print("Error saving cell data: \(error.localizedDescription)")
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -378,7 +696,8 @@ class SundayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            //self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
+            self.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -388,4 +707,5 @@ class SundayViewController: UITableViewController {
 
         present(alertController, animated: true, completion: nil)
     }
+
 }
