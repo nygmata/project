@@ -13,20 +13,20 @@ class ToolBar: UIView {
     init() {
         super.init(frame: .zero)
         
-        mondayButton = UIBarButtonItem(customView: getButton(title: "M"))
-        tuesdayButton = UIBarButtonItem(customView: getButton(title: "T"))
-        wednesdayButton = UIBarButtonItem(customView: getButton(title: "W"))
-        thursdayButton = UIBarButtonItem(customView: getButton(title: "T"))
-        fridayButton = UIBarButtonItem(customView: getButton(title: "F"))
-        saturdayButton = UIBarButtonItem(customView: getButton(title: "S"))
-        sundayButton = UIBarButtonItem(customView: getButton(title: "S"))
+        mondayButton = UIBarButtonItem(customView: getButton(title: "M", index: 0))
+        tuesdayButton = UIBarButtonItem(customView: getButton(title: "T", index: 1))
+        wednesdayButton = UIBarButtonItem(customView: getButton(title: "W", index: 2))
+        thursdayButton = UIBarButtonItem(customView: getButton(title: "T", index: 3))
+        fridayButton = UIBarButtonItem(customView: getButton(title: "F", index: 4))
+        saturdayButton = UIBarButtonItem(customView: getButton(title: "S", index: 5))
+        sundayButton = UIBarButtonItem(customView: getButton(title: "S", index: 6))
         
     }
     
-    func getButton(title: String) -> UIButton {
+    func getButton(title: String, index: Int) -> UIButton {
         let btn1 = UIButton(type: .custom)
         let week: WeekViewController
-        
+        btn1.tag = index
         btn1.backgroundColor = .lightGray
         btn1.frame = CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height)
         btn1.addTarget(self, action: #selector(week.toolBarPressed), for: .touchUpInside)
@@ -38,6 +38,9 @@ class ToolBar: UIView {
         
         return btn1
     }
+    
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
