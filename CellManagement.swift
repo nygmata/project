@@ -12,20 +12,24 @@ class CellManagement: UIViewController {
             cells.append(Cell(time: time, description: ""))
         }
     }
-    /*
-    public func loadCellData<T: NSManagedObject>(_ cells: inout [Cell], entity: T.Type) {
+    
+    public func loadCellData<T: NSManagedObject>(_ cells: inout [Cell], _ entity: T.Type) {
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
-        let fetchRequest = NSFetchRequest<T>(entityName: String(describing: entity))
+        let fetchRequest: NSFetchRequest<T> = NSFetchRequest<T>(entityName: String(describing: T.self))
 
         do {
             let cellEntities = try context.fetch(fetchRequest)
             for cellEntity in cellEntities {
-
-                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
-
+                
+                guard let time = cellEntity.value(forKey: "time") as? String,
+                              let descriptionAtr = cellEntity.value(forKey: "descriptionAtr") as? String else {
+                            throw NSError(domain: "com.example", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch entity properties"])
+                        }
+                let cell = Cell(time: time, description: descriptionAtr)
+            
                 if let index = timeToIndex[cell.time] {
                     cells[index] = cell
                 }
@@ -35,19 +39,23 @@ class CellManagement: UIViewController {
         }
     }
     
-    func saveCellData(time: String, description: String) {
+    func saveCellData<T: NSManagedObject>(time: String, description: String, _ entity: T.Type) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
-        let cellEntity = CellEntityMonday(context: context)
-        cellEntity.time = time
-        cellEntity.descriptionAtr = description
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: String(describing: T.self), in: context) else {
+            fatalError("Entity description not found for \(T.self)")
+        }
+
+        let cellEntity = T(entity: entityDescription, insertInto: context)
+        cellEntity.setValue(time, forKey: "time")
+        cellEntity.setValue(description, forKey: "descriptionAtr")
 
         do {
             try context.save()
+            print("Cell data saved successfully")
         } catch let error {
             print("Error saving cell data: \(error.localizedDescription)")
         }
-    }*/
-    
+    }    
 }
