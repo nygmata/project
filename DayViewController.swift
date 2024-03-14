@@ -1,11 +1,6 @@
 import UIKit
 import CoreData
 
-var managedObjectContext: NSManagedObjectContext {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    return appDelegate.persistentContainer.viewContext
-}
-
 struct Cell {
     var time: String
     var description: String
@@ -15,88 +10,18 @@ class MondayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
-        createCells()
-        loadCellData(cells: [Cell]())
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
         
     }
     
-    func loadCellData(cells: [Cell]) {
-
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-
-        let fetchRequest: NSFetchRequest<CellEntity> = CellEntity.fetchRequest()
-
-        do {
-            let cellEntities = try context.fetch(fetchRequest)
-            for cellEntity in cellEntities {
-                
-                let cell = Cell(time: cellEntity.time ?? "", description: cellEntity.descriptionAtr ?? "" )
-                if (cell.time == "6AM") {
-                    self.cells[0] = cell
-                } else if (cell.time == "7AM") {
-                    self.cells[1] = cell
-                } else if (cell.time == "8AM") {
-                    self.cells[2] = cell
-                } else if (cell.time == "9AM") {
-                    self.cells[3] = cell
-                } else if (cell.time == "10AM") {
-                    self.cells[4] = cell
-                } else if (cell.time == "11AM") {
-                    self.cells[5] = cell
-                } else if (cell.time == "12AM") {
-                    self.cells[6] = cell
-                } else if (cell.time == "1PM") {
-                    self.cells[7] = cell
-                } else if (cell.time == "2PM") {
-                    self.cells[8] = cell
-                } else if (cell.time == "3PM") {
-                    self.cells[9] = cell
-                } else if (cell.time == "4PM") {
-                    self.cells[10] = cell
-                } else if (cell.time == "5PM") {
-                    self.cells[11] = cell
-                } else if (cell.time == "6PM") {
-                    self.cells[12] = cell
-                } else if (cell.time == "7PM") {
-                    self.cells[13] = cell
-                } else if (cell.time == "8PM") {
-                    self.cells[14] = cell
-                } else if (cell.time == "9PM") {
-                    self.cells[15] = cell
-                } else if (cell.time == "10PM") {
-                    self.cells[16] = cell
-                } else if (cell.time == "11PM") {
-                    self.cells[17] = cell
-                }
-                    
-            }
-        } catch let error {
-            print("Error fetching cell data: \(error.localizedDescription)")
-        }
-
-    }
-    func saveCellData(time: String, description: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-
-        let cellEntity = CellEntity(context: context)
-        cellEntity.time = time
-        cellEntity.descriptionAtr = description
-
-        do {
-            try context.save()
-        } catch let error {
-            print("Error saving cell data: \(error.localizedDescription)")
-        }
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let currentCell = cells[indexPath.row]
@@ -108,27 +33,6 @@ class MondayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -147,26 +51,16 @@ class MondayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.saveCellData(time: self.cells[indexPath.row].time, description: description) // Save the updated data
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
             
         }
         
-
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
-    }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
     }
 }
 
@@ -174,11 +68,14 @@ class TuesdayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        createCells()
+        
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -192,27 +89,6 @@ class TuesdayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -231,6 +107,7 @@ class TuesdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -239,15 +116,6 @@ class TuesdayViewController: UITableViewController {
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
-    }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
     }
 }
 
@@ -255,11 +123,13 @@ class WednesdayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        createCells()
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -273,27 +143,6 @@ class WednesdayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -312,6 +161,7 @@ class WednesdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -320,15 +170,6 @@ class WednesdayViewController: UITableViewController {
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
-    }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
     }
 }
 
@@ -336,11 +177,13 @@ class ThursdayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        createCells()
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -354,27 +197,6 @@ class ThursdayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -393,6 +215,7 @@ class ThursdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -401,15 +224,6 @@ class ThursdayViewController: UITableViewController {
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
-    }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
     }
 }
 
@@ -418,11 +232,13 @@ class FridayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        createCells()
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -436,27 +252,6 @@ class FridayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -475,6 +270,7 @@ class FridayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -483,15 +279,6 @@ class FridayViewController: UITableViewController {
         alertController.addAction(cancelAction)
 
         present(alertController, animated: true, completion: nil)
-    }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
     }
 }
 
@@ -499,11 +286,13 @@ class SaturdayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        createCells()
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -517,27 +306,6 @@ class SaturdayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -556,6 +324,7 @@ class SaturdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -565,27 +334,19 @@ class SaturdayViewController: UITableViewController {
 
         present(alertController, animated: true, completion: nil)
     }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
-    }
 }
-
 
 class SundayViewController: UITableViewController {
 
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
+    var cellManagement = CellManagement()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        createCells()
+        cellManagement.createCells(&cells)
+        cellManagement.loadCellData(&cells)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -599,27 +360,6 @@ class SundayViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
-    }
-
-    func createCells() {
-        cells.append(Cell(time: "6AM", description: ""))
-        cells.append(Cell(time: "7AM", description: ""))
-        cells.append(Cell(time: "8AM", description: ""))
-        cells.append(Cell(time: "9AM", description: ""))
-        cells.append(Cell(time: "10AM", description: ""))
-        cells.append(Cell(time: "11AM", description: ""))
-        cells.append(Cell(time: "12AM", description: ""))
-        cells.append(Cell(time: "1PM", description: ""))
-        cells.append(Cell(time: "2PM", description: ""))
-        cells.append(Cell(time: "3PM", description: ""))
-        cells.append(Cell(time: "4PM", description: ""))
-        cells.append(Cell(time: "5PM", description: ""))
-        cells.append(Cell(time: "6PM", description: ""))
-        cells.append(Cell(time: "7PM", description: ""))
-        cells.append(Cell(time: "8PM", description: ""))
-        cells.append(Cell(time: "9PM", description: ""))
-        cells.append(Cell(time: "10PM", description: ""))
-        cells.append(Cell(time: "11PM", description: ""))
     }
 
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {
@@ -638,6 +378,7 @@ class SundayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -647,24 +388,4 @@ class SundayViewController: UITableViewController {
 
         present(alertController, animated: true, completion: nil)
     }
-
-    enum Constants {
-        static let height: CGFloat = 53.57
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let borderWidth: CGFloat = 2
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
