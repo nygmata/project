@@ -17,7 +17,8 @@ class ToolBar: UIView {
     func getButton(title: String, index: Int, selector: Selector) -> UIBarButtonItem {
         let btn1 = UIButton(type: .custom)
         btn1.tag = index
-        btn1.backgroundColor = .lightGray
+        btn1.backgroundColor = Constants.dark
+        btn1.setTitleColor(.white, for: .normal)
         btn1.frame = CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height)
         btn1.addTarget(self, action: selector, for: .touchUpInside)
         btn1.setTitle(title, for: .normal)
@@ -28,9 +29,7 @@ class ToolBar: UIView {
         
         return UIBarButtonItem(customView: btn1)
     }
-    
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -42,7 +41,7 @@ class ToolBar: UIView {
         static let titleFont = UIFont(name: "Didot", size: 15)
         static let corners: CGFloat = 20
         static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let goalsPink = UIColor(red: 0xf7/255.0, green: 0xee/255.0, blue: 0xf3/255.0, alpha: 1)
+        static let dark = UIColor(red: 0x79/255.0, green: 0x80/255.0, blue: 0xA9/255.0, alpha: 1)
         static let borderWidth: CGFloat = 2
     }
 }
