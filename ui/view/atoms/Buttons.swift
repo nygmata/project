@@ -10,7 +10,7 @@ class Button: UIButton {
         self.backgroundColor = backgroundColor
         layer.borderColor = borderColor
         
-        setTitleColor(.darkGray, for: .normal)
+        setTitleColor(.white, for: .normal)
         layer.cornerRadius = Constants.corners
         layer.borderWidth = Constants.borderWidth
     }
