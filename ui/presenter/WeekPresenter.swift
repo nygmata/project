@@ -25,16 +25,6 @@ class WeekPresenter: WeekViewPresenter {
     required init(view: WeekView) {
         self.view = view
         
-        days = [
-            MondayViewController(),
-            TuesdayViewController(),
-            WednesdayViewController(),
-            ThursdayViewController(),
-            FridayViewController(),
-            SaturdayViewController(),
-            SundayViewController()
-        ]
-        
         widgets = [
             GoalsViewController(),
             ResultsViewController(),
@@ -43,7 +33,7 @@ class WeekPresenter: WeekViewPresenter {
     }
     
     func openDay(button: UIButton) {
-        view.openScreen(screen: days[button.tag])
+        view.openScreen(screen: DayViewController(index: button.tag))
     }
     
     func openWidget(button: UIButton) {
