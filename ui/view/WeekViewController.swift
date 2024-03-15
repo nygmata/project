@@ -49,11 +49,11 @@ class WeekViewController: UIViewController, WeekView {
         
         if (index == 0) {
             NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: view.topAnchor, constant: 150)
+                button.topAnchor.constraint(equalTo: view.topAnchor, constant: 200)
             ])
         } else {
             NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: buttons[index - 1].bottomAnchor)
+                button.topAnchor.constraint(equalTo: buttons[index - 1].bottomAnchor, constant: 50)
             ])
         }
             
