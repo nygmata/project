@@ -43,6 +43,7 @@ class WeekViewController: UIViewController, WeekView {
     func configureButton(index: Int) {
         let button: Button = Button(title: toolBarNames[index], font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape)
         buttons.append(button)
+        button.tag = index
         view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -61,12 +62,12 @@ class WeekViewController: UIViewController, WeekView {
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             button.heightAnchor.constraint(equalToConstant: Constants.height)
         ])
-        button.addTarget(self, action: #selector(toolbarButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(widgetButtonPressed), for: .touchUpInside)
     }
     
     @objc
-    public func toolbarButtonPressed(button: Button)  {
-        presenter.openToolBarWidget(button: button)
+    public func widgetButtonPressed(button: Button)  {
+        presenter.openWidget(button: button)
     }
     
     @objc
