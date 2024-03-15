@@ -18,7 +18,7 @@ class MondayViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells, CellEntityMonday.self)
+//        cellManagement.loadCellData(&cells, CellEntityMonday.self)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +51,7 @@ class MondayViewController: UITableViewController {
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityMonday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityMonday.self)
             
         }
         
@@ -75,7 +75,7 @@ class TuesdayViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells, CellEntityTuesday.self)
+//        cellManagement.loadCellData(&cells, CellEntityTuesday.self)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +107,7 @@ class TuesdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityTuesday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityTuesday.self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -129,7 +129,7 @@ class WednesdayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells, CellEntityWednesday.self)
+//        cellManagement.loadCellData(&cells, CellEntityWednesday.self)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,7 +161,7 @@ class WednesdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityWednesday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityWednesday.self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -184,7 +184,7 @@ class ThursdayViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
        
-        cellManagement.loadCellData(&cells, CellEntityThursday.self)
+//        cellManagement.loadCellData(&cells, CellEntityThursday.self)
     }
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -216,7 +216,7 @@ class ThursdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityThursday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityThursday.self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -238,7 +238,7 @@ class FridayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells, CellEntityFriday.self)
+//        cellManagement.loadCellData(&cells, CellEntityFriday.self)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -270,7 +270,7 @@ class FridayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityFriday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityFriday.self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -293,16 +293,16 @@ class SaturdayViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
 
-        cellManagement.loadCellData(&cells, CellEntitySaturday.self)
+//        cellManagement.loadCellData(&cells, CellEntitySaturday.self)
     }
     
     func saveCellData(time: String, description: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
-        let cellEntity = CellEntitySaturday(context: context)
-        cellEntity.time = time
-        cellEntity.descriptionAtr = description
+//        let cellEntity = CellEntitySaturday(context: context)
+//        cellEntity.time = time
+//        cellEntity.descriptionAtr = description
 
         do {
             try context.save()
@@ -340,7 +340,7 @@ class SaturdayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntitySaturday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntitySaturday.self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -362,7 +362,7 @@ class SundayViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         cellManagement.createCells(&cells)
-        cellManagement.loadCellData(&cells, CellEntitySunday.self)
+//        cellManagement.loadCellData(&cells, CellEntitySunday.self)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -394,7 +394,7 @@ class SundayViewController: UITableViewController {
             self.cells[indexPath.row].description = description
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntitySunday.self)
+//            self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntitySunday.self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

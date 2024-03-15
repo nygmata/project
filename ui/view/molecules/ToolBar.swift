@@ -2,41 +2,31 @@ import UIKit
 
 class ToolBar: UIView {
     
-    var mondayButton = UIBarButtonItem()
-    var tuesdayButton = UIBarButtonItem()
-    var wednesdayButton = UIBarButtonItem()
-    var thursdayButton = UIBarButtonItem()
-    var fridayButton = UIBarButtonItem()
-    var saturdayButton = UIBarButtonItem()
-    var sundayButton = UIBarButtonItem()
+    var buttons: [UIBarButtonItem] = []
     
-    init() {
+    init(selector: Selector) {
         super.init(frame: .zero)
         
-        mondayButton = UIBarButtonItem(customView: getButton(title: "M", index: 0))
-        tuesdayButton = UIBarButtonItem(customView: getButton(title: "T", index: 1))
-        wednesdayButton = UIBarButtonItem(customView: getButton(title: "W", index: 2))
-        thursdayButton = UIBarButtonItem(customView: getButton(title: "T", index: 3))
-        fridayButton = UIBarButtonItem(customView: getButton(title: "F", index: 4))
-        saturdayButton = UIBarButtonItem(customView: getButton(title: "S", index: 5))
-        sundayButton = UIBarButtonItem(customView: getButton(title: "S", index: 6))
+        let days = ["M", "T", "W", "T", "F", "S", "S"]
         
+        for i in 0...6 {
+            buttons.append(getButton(title: days[i], index: i, selector: selector))
+        }
     }
     
-    func getButton(title: String, index: Int) -> UIButton {
+    func getButton(title: String, index: Int, selector: Selector) -> UIBarButtonItem {
         let btn1 = UIButton(type: .custom)
-        let week: WeekViewController
         btn1.tag = index
         btn1.backgroundColor = .lightGray
         btn1.frame = CGRect(x: 0, y: 0, width: Constants.width, height: Constants.height)
-        btn1.addTarget(self, action: #selector(week.toolBarPressed), for: .touchUpInside)
+        btn1.addTarget(self, action: selector, for: .touchUpInside)
         btn1.setTitle(title, for: .normal)
         btn1.titleLabel?.font = Constants.titleFont
         btn1.layer.borderColor = Constants.grape
         btn1.layer.cornerRadius = Constants.corners
         btn1.layer.borderWidth = Constants.borderWidth
         
-        return btn1
+        return UIBarButtonItem(customView: btn1)
     }
     
     

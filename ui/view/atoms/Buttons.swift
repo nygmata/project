@@ -1,12 +1,26 @@
 import UIKit
 
-class Button2: UIButton {
+class Button: UIButton {
+    var id: Int = 0
     
     init(title: String, font: UIFont, backgroundColor: UIColor, borderColor: CGColor) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
         titleLabel?.font = font
         self.backgroundColor = backgroundColor
+        layer.borderColor = borderColor
+        
+        setTitleColor(.darkGray, for: .normal)
+        layer.cornerRadius = Constants.corners
+        layer.borderWidth = Constants.borderWidth
+    }
+    
+    init(title: String, id: Int, font: UIFont, backgroundColor: UIColor, borderColor: CGColor) {
+        super.init(frame: .zero)
+        setTitle(title, for: .normal)
+        titleLabel?.font = font
+        self.backgroundColor = backgroundColor
+        self.id = id
         layer.borderColor = borderColor
         
         setTitleColor(.darkGray, for: .normal)
@@ -21,5 +35,5 @@ class Button2: UIButton {
     enum Constants {
         static let corners: CGFloat = 20
         static let borderWidth: CGFloat = 2
-    }   
+    }
 }

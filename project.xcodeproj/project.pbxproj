@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B903BEA12BA3AB0000DF01C4 /* CellManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */; };
+		B903BEA32BA3AB4600DF01C4 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA22BA3AB4600DF01C4 /* GoalsView.swift */; };
+		B903BEA52BA3ABD700DF01C4 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA42BA3ABD700DF01C4 /* DayViewController.swift */; };
+		B903BEA72BA3CE8F00DF01C4 /* WeekPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA62BA3CE8F00DF01C4 /* WeekPresenter.swift */; };
+		B903BEAB2BA3DEE900DF01C4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEAA2BA3DEE900DF01C4 /* Options.swift */; };
+		B903BEAD2BA3E1E600DF01C4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEAC2BA3E1E600DF01C4 /* AboutViewController.swift */; };
 		B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EA2B9F7807002DE69A /* WeekViewController.swift */; };
-		B939B0ED2B9F8352002DE69A /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EC2B9F8352002DE69A /* WeekView.swift */; };
 		B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EE2B9F83AF002DE69A /* ToolBar.swift */; };
 		B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0F02B9F83ED002DE69A /* Buttons.swift */; };
 		B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */; };
@@ -22,11 +27,6 @@
 		FB1399B92B7BDDAF00ECA39F /* projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399B82B7BDDAF00ECA39F /* projectUITests.swift */; };
 		FB1399BB2B7BDDAF00ECA39F /* projectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399BA2B7BDDAF00ECA39F /* projectUITestsLaunchTests.swift */; };
 		FB1399C92B7BDF1600ECA39F /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB1399C82B7BDF1600ECA39F /* CalendarKit */; };
-		FB1399CB2B7CBE1F00ECA39F /* FirstWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399CA2B7CBE1F00ECA39F /* FirstWeekViewController.swift */; };
-		FB1399CD2B7CBF1C00ECA39F /* SecondWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399CC2B7CBF1C00ECA39F /* SecondWeekViewController.swift */; };
-		FB1399CF2B7CBFA700ECA39F /* ThirdWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */; };
-		FB1399D12B7CBFC800ECA39F /* ForthWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399D02B7CBFC800ECA39F /* ForthWeekViewController.swift */; };
-		FB1399D32B7F394800ECA39F /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1399D22B7F394800ECA39F /* DayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellManagement.swift; sourceTree = "<group>"; };
+		B903BEA22BA3AB4600DF01C4 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		B903BEA42BA3ABD700DF01C4 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		B903BEA62BA3CE8F00DF01C4 /* WeekPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPresenter.swift; sourceTree = "<group>"; };
+		B903BEAA2BA3DEE900DF01C4 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		B903BEAC2BA3E1E600DF01C4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B939B0EA2B9F7807002DE69A /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
-		B939B0EC2B9F8352002DE69A /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		B939B0EE2B9F83AF002DE69A /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		B939B0F02B9F83ED002DE69A /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksViewController.swift; sourceTree = "<group>"; };
@@ -65,11 +70,6 @@
 		FB1399B42B7BDDAF00ECA39F /* projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1399B82B7BDDAF00ECA39F /* projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITests.swift; sourceTree = "<group>"; };
 		FB1399BA2B7BDDAF00ECA39F /* projectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FB1399CA2B7CBE1F00ECA39F /* FirstWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWeekViewController.swift; sourceTree = "<group>"; };
-		FB1399CC2B7CBF1C00ECA39F /* SecondWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWeekViewController.swift; sourceTree = "<group>"; };
-		FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdWeekViewController.swift; sourceTree = "<group>"; };
-		FB1399D02B7CBFC800ECA39F /* ForthWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthWeekViewController.swift; sourceTree = "<group>"; };
-		FB1399D22B7F394800ECA39F /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +98,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B903BEA82BA3CF7E00DF01C4 /* atoms */ = {
+			isa = PBXGroup;
+			children = (
+				B939B0F02B9F83ED002DE69A /* Buttons.swift */,
+				B903BEAA2BA3DEE900DF01C4 /* Options.swift */,
+			);
+			path = atoms;
+			sourceTree = "<group>";
+		};
+		B903BEA92BA3CFA600DF01C4 /* molecules */ = {
+			isa = PBXGroup;
+			children = (
+				B939B0EE2B9F83AF002DE69A /* ToolBar.swift */,
+			);
+			path = molecules;
+			sourceTree = "<group>";
+		};
 		B939B0E92B9F6EEE002DE69A /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,8 +134,13 @@
 		B9ED6DF22B9F571900C33173 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B903BEA92BA3CFA600DF01C4 /* molecules */,
+				B903BEA82BA3CF7E00DF01C4 /* atoms */,
 				B9ED6DF52B9F597900C33173 /* WeeksViewController.swift */,
 				B939B0EA2B9F7807002DE69A /* WeekViewController.swift */,
+				B903BEA22BA3AB4600DF01C4 /* GoalsView.swift */,
+				B903BEA42BA3ABD700DF01C4 /* DayViewController.swift */,
+				B903BEAC2BA3E1E600DF01C4 /* AboutViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -127,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				B9ED6DF72B9F598D00C33173 /* WeeksPresenter.swift */,
+				B903BEA62BA3CE8F00DF01C4 /* WeekPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -134,16 +157,9 @@
 		FB13998B2B7BDDAD00ECA39F = {
 			isa = PBXGroup;
 			children = (
-				B939B0F02B9F83ED002DE69A /* Buttons.swift */,
-				B939B0EE2B9F83AF002DE69A /* ToolBar.swift */,
-				B939B0EC2B9F8352002DE69A /* WeekView.swift */,
+				B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */,
 				B939B0E92B9F6EEE002DE69A /* data */,
 				B9ED6DF12B9F570E00C33173 /* ui */,
-				FB1399D22B7F394800ECA39F /* DayViewController.swift */,
-				FB1399CE2B7CBFA700ECA39F /* ThirdWeekViewController.swift */,
-				FB1399D02B7CBFC800ECA39F /* ForthWeekViewController.swift */,
-				FB1399CA2B7CBE1F00ECA39F /* FirstWeekViewController.swift */,
-				FB1399CC2B7CBF1C00ECA39F /* SecondWeekViewController.swift */,
 				FB1399962B7BDDAD00ECA39F /* project */,
 				FB1399AD2B7BDDAF00ECA39F /* projectTests */,
 				FB1399B72B7BDDAF00ECA39F /* projectUITests */,
@@ -328,19 +344,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB1399CF2B7CBFA700ECA39F /* ThirdWeekViewController.swift in Sources */,
-				FB1399CD2B7CBF1C00ECA39F /* SecondWeekViewController.swift in Sources */,
 				FB1399982B7BDDAD00ECA39F /* AppDelegate.swift in Sources */,
 				B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */,
 				B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */,
 				FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */,
-				FB1399CB2B7CBE1F00ECA39F /* FirstWeekViewController.swift in Sources */,
-				FB1399D12B7CBFC800ECA39F /* ForthWeekViewController.swift in Sources */,
+				B903BEAB2BA3DEE900DF01C4 /* Options.swift in Sources */,
+				B903BEA32BA3AB4600DF01C4 /* GoalsView.swift in Sources */,
+				B903BEA12BA3AB0000DF01C4 /* CellManagement.swift in Sources */,
+				B903BEA72BA3CE8F00DF01C4 /* WeekPresenter.swift in Sources */,
 				B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */,
-				B939B0ED2B9F8352002DE69A /* WeekView.swift in Sources */,
+				B903BEA52BA3ABD700DF01C4 /* DayViewController.swift in Sources */,
 				B9ED6DF82B9F598D00C33173 /* WeeksPresenter.swift in Sources */,
+				B903BEAD2BA3E1E600DF01C4 /* AboutViewController.swift in Sources */,
 				B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */,
-				FB1399D32B7F394800ECA39F /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

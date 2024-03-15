@@ -6,45 +6,17 @@
 //
 import UIKit
 
-class Button: UIButton {
-    var id: Int = Int()
-    
-    init(title: String, id: Int) {
-        super.init(frame: .zero)
-        
-        self.id = id
-        
-        setTitle(title, for: .normal)
-        setTitleColor(.darkGray, for: .normal)
-        titleLabel?.font = Constants.titleFont
-        backgroundColor = Constants.blue
-        layer.cornerRadius = Constants.corners
-        layer.borderColor = Constants.grape
-        layer.borderWidth = Constants.borderWidth
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    enum Constants {
-        static let lightPink = UIColor(red: 232/255.0, green: 204/255.0, blue: 215/255.0, alpha: 0.7)
-        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
-        static let lavender = UIColor(red: 0xd0/255.0, green: 0xd5/255.0, blue: 0xf7/255.0, alpha: 1)
-        static let blue = UIColor(red: 0xbf/255.0, green: 0xca/255.0, blue: 0xe2/255.0, alpha: 1)
-        static let titleFont = UIFont(name: "Didot", size: 30)
-        static let corners: CGFloat = 20
-        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let purple = UIColor(red: 0xda/255.0, green: 0xbf/255.0, blue: 0xde/255.0, alpha: 1)
-        static let borderWidth: CGFloat = 2
-    }
-}
-
 class WeeksViewController: UIViewController, WeeksView {
     
     enum Constants {
         static let week: String = "Week"
         static let height: CGFloat = 100
+        static let lightGray = UIColor(red: 0xe0/255.0, green: 0xe1/255.0, blue: 0xe9/255.0, alpha: 1)
+        static let titleFont = UIFont(name: "Didot", size: 30)
+        static let corners: CGFloat = 20
+        static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
+        static let goalsPink = UIColor(red: 0xf7/255.0, green: 0xee/255.0, blue: 0xf3/255.0, alpha: 1)
+        static let borderWidth: CGFloat = 2
     }
     
     var presenter: WeeksViewPresenter!
@@ -59,7 +31,7 @@ class WeeksViewController: UIViewController, WeeksView {
     
     func configuteUI() {
         for num in 1...n {
-            buttons.append(Button(title: Constants.week + String(num), id: num))
+            buttons.append(Button(title: Constants.week + String(num), id: num, font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape))
             let button: Button = buttons[num-1]
             view.addSubview(button)
             
@@ -74,17 +46,17 @@ class WeeksViewController: UIViewController, WeeksView {
                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                     button.heightAnchor.constraint(equalToConstant: Constants.height)
                 ])
-            print(button.id)
-            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+            button.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
         }
     }
     
     @objc
-    func didTapButton(button: Button) {
-        self.presenter.openScreen(button: button)
+    func buttonPress(button: Button) {
+        presenter.openScreen(button: button)
     }
     
     func openScreen(screen: UIViewController) {
         self.navigationController?.pushViewController(screen, animated: true)
     }
+    
 }
