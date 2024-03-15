@@ -44,14 +44,6 @@ class DayViewController: UITableViewController {
             default:
                 cellManagement.loadCellData(&cells, CellEntitySunday.self)
         }
-    
-        
-        if (id == 0) {
-            
-        } else if (id == 1) {
-            
-        }
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
