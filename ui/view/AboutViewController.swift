@@ -69,7 +69,7 @@ class AboutViewController: UIViewController {
     
     enum Constants {
         static let padding: CGFloat = CGFloat(10)
-        static let textHeight: CGFloat = CGFloat(150)
+        static let textHeight: CGFloat = CGFloat(250)
         static let text: String  = "Developers:\n Pavel Nikulshin - @p_nikulshin \n Anna Fedotova - @who_is_ed_nygma \n Students of HSE university"
         static let officeName: String = "HSE"
         static let officeCoords: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 55.754196,longitude: 37.649103)
