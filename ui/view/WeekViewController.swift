@@ -11,13 +11,13 @@ class WeekViewController: UIViewController, WeekView {
     var id: Int = 0
     var buttons: [Button] = []
     var toolBarNames: [String] = ["Week Improvements", "Main Week Goals", "Week Results"]
+    var buttonColors: [UIColor] = [Constants.blue, Constants.lightBlue, Constants.green]
     var presenter: WeekViewPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = WeekPresenter(view: self)
-        view.backgroundColor = .lightGray
-        
+        view.backgroundColor = .white
         
         for i in 0...2 {
             configureButton(index: i)
@@ -41,7 +41,7 @@ class WeekViewController: UIViewController, WeekView {
     }
  
     func configureButton(index: Int) {
-        let button: Button = Button(title: toolBarNames[index], font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape)
+        let button: Button = Button(title: toolBarNames[index], font: Constants.titleFont!, backgroundColor: buttonColors[index%3], borderColor: Constants.grape)
         buttons.append(button)
         button.tag = index
         view.addSubview(button)
@@ -87,5 +87,8 @@ class WeekViewController: UIViewController, WeekView {
         static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
         static let goalsPink = UIColor(red: 0xf7/255.0, green: 0xee/255.0, blue: 0xf3/255.0, alpha: 1)
         static let borderWidth: CGFloat = 2
+        static let green = UIColor(red: 0x4f/255.0, green: 0xC1/255.0, blue: 0xB9/255.0, alpha: 1)
+        static let blue = UIColor(red: 0x4D/255.0, green: 0x69/255.0, blue: 0xF9/255.0, alpha: 1)
+        static let lightBlue = UIColor(red: 0x65/255.0, green: 0xB3/255.0, blue: 0xFF/255.0, alpha: 1)
     }
 }
