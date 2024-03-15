@@ -4,6 +4,7 @@
 //
 //  Created by Paul Nikulshin on 11.03.2024.
 //
+
 import UIKit
 
 protocol WeeksView: AnyObject {
@@ -36,7 +37,6 @@ class WeeksPresenter: WeeksViewPresenter {
     }
     
     func openToolbar(button: UIButton) {
-        print("SMT")
         view.openScreen(screen: toolbarScreens[button.tag])
     }
 }
