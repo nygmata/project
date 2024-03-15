@@ -6,8 +6,9 @@ struct Cell {
     var description: String
 }
 
-class DayViewController: UITableViewController {
-
+class DayViewController: UITableViewController, DayView {
+    var presenter: DayViewPresenter!
+    
     let cellId = "cellId"
     var cells: [Cell] = [Cell]()
     var cellManagement = CellManagement()
@@ -16,6 +17,8 @@ class DayViewController: UITableViewController {
     init(index: Int) {
         id = index
         super.init(nibName: nil, bundle: nil)
+        
+        presenter = DayPresenter(view: self)
     }
     
     required init?(coder: NSCoder) {

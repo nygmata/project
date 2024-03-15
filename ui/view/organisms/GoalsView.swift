@@ -14,13 +14,13 @@ class ResultsViewController : UIViewController {
     
     @objc func textViewDidChange(_ notification: Notification) {
         if let textView = notification.object as? UITextView {
-//            cellManagement.saveTextData(text: textView.text, Results.self)
+            cellManagement.saveTextData(text: textView.text, Results.self)
         }
     }
     
     func configureTextView() {
         view.addSubview(textView)
-//        cellManagement.loadTextData(textView: textView, Results.self)
+        cellManagement.loadTextData(textView: textView, Results.self)
         textView.backgroundColor = Constants.resultsPink
         textView.font = Constants.titleFont
         textView.textColor = .black
@@ -59,13 +59,13 @@ class GoalsViewController : UIViewController {
     
     @objc func textViewDidChange(_ notification: Notification) {
         if let textView = notification.object as? UITextView {
-//            cellManagement.saveTextData(text: textView.text, Goals.self)
+            cellManagement.saveTextData(text: textView.text, Goals.self)
         }
     }
     
     func configureTextView() {
         view.addSubview(textView)
-//        cellManagement.loadTextData(textView: textView, Goals.self)
+        cellManagement.loadTextData(textView: textView, Goals.self)
         textView.backgroundColor = Constants.goalsPink
         textView.font = Constants.titleFont
         textView.textColor = .black
@@ -104,13 +104,13 @@ class ImprovementViewController : UIViewController {
     
     @objc func textViewDidChange(_ notification: Notification) {
         if let textView = notification.object as? UITextView {
-//            cellManagement.saveTextData(text: textView.text, Improvement.self)
+            cellManagement.saveTextData(text: textView.text, Improvement.self)
         }
     }
     
     func configureTextView() {
         view.addSubview(textView)
-//        cellManagement.loadTextData(textView: textView, Improvement.self)
+        cellManagement.loadTextData(textView: textView, Improvement.self)
         textView.backgroundColor = Constants.goalsPink
         textView.font = Constants.titleFont
         textView.textColor = .black

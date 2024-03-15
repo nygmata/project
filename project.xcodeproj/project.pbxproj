@@ -16,6 +16,8 @@
 		B903BEB02BA4580D00DF01C4 /* BoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEAF2BA4580D00DF01C4 /* BoardingViewController.swift */; };
 		B903BEB22BA4588700DF01C4 /* OnBoardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEB12BA4588700DF01C4 /* OnBoardingItem.swift */; };
 		B903BEB42BA4601F00DF01C4 /* BoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEB32BA4601F00DF01C4 /* BoardingPresenter.swift */; };
+		B903BEBA2BA47B7000DF01C4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B903BEB82BA47B6F00DF01C4 /* Model.xcdatamodeld */; };
+		B903BEBC2BA47C1500DF01C4 /* DayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEBB2BA47C1500DF01C4 /* DayPresenter.swift */; };
 		B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EA2B9F7807002DE69A /* WeekViewController.swift */; };
 		B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EE2B9F83AF002DE69A /* ToolBar.swift */; };
 		B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0F02B9F83ED002DE69A /* Buttons.swift */; };
@@ -59,6 +61,8 @@
 		B903BEAF2BA4580D00DF01C4 /* BoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingViewController.swift; sourceTree = "<group>"; };
 		B903BEB12BA4588700DF01C4 /* OnBoardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingItem.swift; sourceTree = "<group>"; };
 		B903BEB32BA4601F00DF01C4 /* BoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingPresenter.swift; sourceTree = "<group>"; };
+		B903BEB92BA47B7000DF01C4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B903BEBB2BA47C1500DF01C4 /* DayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPresenter.swift; sourceTree = "<group>"; };
 		B939B0EA2B9F7807002DE69A /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		B939B0EE2B9F83AF002DE69A /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		B939B0F02B9F83ED002DE69A /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		B939B0E92B9F6EEE002DE69A /* data */ = {
 			isa = PBXGroup;
 			children = (
+				B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				B9ED6DF72B9F598D00C33173 /* WeeksPresenter.swift */,
 				B903BEA62BA3CE8F00DF01C4 /* WeekPresenter.swift */,
 				B903BEB32BA4601F00DF01C4 /* BoardingPresenter.swift */,
+				B903BEBB2BA47C1500DF01C4 /* DayPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -174,7 +180,7 @@
 		FB13998B2B7BDDAD00ECA39F = {
 			isa = PBXGroup;
 			children = (
-				B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */,
+				B903BEB82BA47B6F00DF01C4 /* Model.xcdatamodeld */,
 				B939B0E92B9F6EEE002DE69A /* data */,
 				B9ED6DF12B9F570E00C33173 /* ui */,
 				FB1399962B7BDDAD00ECA39F /* project */,
@@ -368,7 +374,9 @@
 				B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */,
 				FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */,
 				B903BEAB2BA3DEE900DF01C4 /* Options.swift in Sources */,
+				B903BEBC2BA47C1500DF01C4 /* DayPresenter.swift in Sources */,
 				B903BEA32BA3AB4600DF01C4 /* GoalsView.swift in Sources */,
+				B903BEBA2BA47B7000DF01C4 /* Model.xcdatamodeld in Sources */,
 				B903BEA12BA3AB0000DF01C4 /* CellManagement.swift in Sources */,
 				B903BEA72BA3CE8F00DF01C4 /* WeekPresenter.swift in Sources */,
 				B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */,
@@ -733,6 +741,20 @@
 			productName = CalendarKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B903BEB82BA47B6F00DF01C4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B903BEB92BA47B7000DF01C4 /* Model.xcdatamodel */,
+			);
+			currentVersion = B903BEB92BA47B7000DF01C4 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../../Downloads/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FB13998C2B7BDDAD00ECA39F /* Project object */;
 }
