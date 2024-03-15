@@ -30,13 +30,14 @@ class WeekViewController: UIViewController, WeekView {
         let toolBarButtons = ToolBar(selector: #selector(dayButtonPressed))
         let toolbar = UIToolbar(frame: CGRectMake(0, 100, view.frame.width, 50))
  
-        toolbar.barTintColor = Constants.goalsPink
+        toolbar.barTintColor = .white
         toolbar.isTranslucent = false
         toolbar.tintColor = .darkGray
   
         toolbar.layer.borderColor = Constants.grape
 
         toolbar.items = toolBarButtons.buttons
+        toolbar.backgroundColor = .white
         view.addSubview(toolbar)
     }
  
@@ -85,7 +86,6 @@ class WeekViewController: UIViewController, WeekView {
         static let titleFont = UIFont(name: "Didot", size: 30)
         static let corners: CGFloat = 20
         static let grape = CGColor(red: 79/255.0, green: 45/255.0, blue: 84/255.0, alpha: 0.1)
-        static let goalsPink = UIColor(red: 0xf7/255.0, green: 0xee/255.0, blue: 0xf3/255.0, alpha: 1)
         static let borderWidth: CGFloat = 2
         static let green = UIColor(red: 0x4f/255.0, green: 0xC1/255.0, blue: 0xB9/255.0, alpha: 1)
         static let blue = UIColor(red: 0x4D/255.0, green: 0x69/255.0, blue: 0xF9/255.0, alpha: 1)

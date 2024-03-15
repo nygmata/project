@@ -11,7 +11,6 @@ class DayViewController: UITableViewController, DayView {
     
     let cellId = "cellId"
     var cells: [Cell] = []
-    var cellManagement: MemoRepositoryProtocol = MemoRepository()
     var id: Int
     
     init(index: Int) {

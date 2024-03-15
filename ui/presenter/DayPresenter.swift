@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol DayView: AnyObject {
     
@@ -15,18 +16,18 @@ protocol DayViewPresenter {
     init(view: DayView, id: Int)
     func getData() -> [Cell]
     func editNote(time: String, newDescription: String)
-    func getMemos(textView: UITextView, index: Int)
-    func addMemo(text: String, index: Int)
     
 }
 
 class DayPresenter: DayViewPresenter {
     var view: DayView!
     var repository: NotesRepository
+    var repositoryMemos: MemoRepository
     
     required init(view: DayView, id: Int) {
         self.view = view
         repository = NotesRepository(id: id)
+        repositoryMemos = MemoRepository()
     }
     
     func getData() -> [Cell] {
@@ -54,14 +55,6 @@ class DayPresenter: DayViewPresenter {
     }
     func editNote(time: String, newDescription: String) {
         repository.editNote(time: time, newDescription: newDescription)
-    }
-    
-    func getMemos(textView: UITextView, index: Int) {
-        
-    }
-    
-    func addMemo(text: String, index: Int) {
-        
     }
 }
 

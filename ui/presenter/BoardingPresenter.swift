@@ -30,15 +30,15 @@ class BoardingPresenter: BoardingViewPresenter {
     required init(view: BoardingView) {
         self.view = view
         boardings = [
-            BoardingItem(imageName: "goal",
+            BoardingItem(imageName: "calendar",
                          titleText: "Always put things off for later?",
                          subtitleText: "Setting and achieving short-term goals is fast, simple and convenient"),
-            BoardingItem(imageName: "swift",
+            BoardingItem(imageName: "learn",
                          titleText: "Learn",
-                         subtitleText: "Start your career in iOS development."),
-            BoardingItem(imageName: "level-up",
+                         subtitleText: "Learn time management"),
+            BoardingItem(imageName: "star",
                          titleText: "Have fun",
-                         subtitleText: "Level Up and have fun building mobile apps.")
+                         subtitleText: "Have fun setting and acieving your goals")
         ]
         lastScreen = WeeksViewController()
     }

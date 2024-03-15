@@ -3,7 +3,7 @@ import UIKit
 class ResultsViewController : UIViewController {
     
     var textView = UITextView()
-    let cellManagement = CellManagement()
+    var cellManagement: MemoRepositoryProtocol = MemoRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class ResultsViewController : UIViewController {
 class GoalsViewController : UIViewController {
     
     var textView = UITextView()
-    let cellManagement = CellManagement()
+    var cellManagement: MemoRepositoryProtocol = MemoRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,7 @@ class GoalsViewController : UIViewController {
 class ImprovementViewController : UIViewController {
     
     var textView = UITextView()
-    let cellManagement = CellManagement()
+    var cellManagement: MemoRepositoryProtocol = MemoRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()

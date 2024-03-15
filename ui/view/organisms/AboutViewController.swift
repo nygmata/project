@@ -38,6 +38,7 @@ class AboutViewController: UIViewController {
             ]
         )
         
+        text.font = UIFont(name: "Didot", size: 20)
         
         NSLayoutConstraint.activate([
             text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding),

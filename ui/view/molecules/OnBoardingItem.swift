@@ -45,12 +45,12 @@ class OnBoardingItem: UIViewController {
                 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        titleLabel.textColor = .white
+        titleLabel.textColor = .black
                 
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
         subtitleLabel.textAlignment = .center
-        subtitleLabel.textColor = .white
+        subtitleLabel.textColor = .black
                 
         subtitleLabel.numberOfLines = 0
         

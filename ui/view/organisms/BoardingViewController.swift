@@ -30,6 +30,7 @@ class BoardingViewController: UIPageViewController, BoardingView {
     func configureUI() {
         dataSource = self
         delegate = self
+        view.backgroundColor = .white
                 
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
         
@@ -73,6 +74,25 @@ class BoardingViewController: UIPageViewController, BoardingView {
         pageControlBottomAnchor?.isActive = true
         skipButtonTopAnchor?.isActive = true
         nextButtonTopAnchor?.isActive = true
+    }
+    
+    @objc func pageControlTapped(_ sender: UIPageControl) {
+        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
+        animateControlsIfNeeded()
+    }
+
+    @objc func skipTapped(_ sender: UIButton) {
+        let lastPage = pages.count - 1
+        pageControl.currentPage = lastPage
+        
+        goToSpecificPage(index: lastPage, ofViewControllers: pages)
+        animateControlsIfNeeded()
+    }
+    
+    @objc func nextTapped(_ sender: UIButton) {
+        pageControl.currentPage += 1
+        goToNextPage()
+        animateControlsIfNeeded()
     }
 }
 
@@ -141,30 +161,6 @@ extension BoardingViewController: UIPageViewControllerDelegate {
         pageControlBottomAnchor?.constant = 16
         skipButtonTopAnchor?.constant = 16
         nextButtonTopAnchor?.constant = 16
-    }
-}
-
-// MARK: - Actions
-
-extension BoardingViewController {
-
-    @objc func pageControlTapped(_ sender: UIPageControl) {
-        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
-        animateControlsIfNeeded()
-    }
-
-    @objc func skipTapped(_ sender: UIButton) {
-        let lastPage = pages.count - 1
-        pageControl.currentPage = lastPage
-        
-        goToSpecificPage(index: lastPage, ofViewControllers: pages)
-        animateControlsIfNeeded()
-    }
-    
-    @objc func nextTapped(_ sender: UIButton) {
-        pageControl.currentPage += 1
-        goToNextPage()
-        animateControlsIfNeeded()
     }
 }
 
