@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B903BEA12BA3AB0000DF01C4 /* CellManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */; };
 		B903BEA32BA3AB4600DF01C4 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA22BA3AB4600DF01C4 /* GoalsView.swift */; };
 		B903BEA52BA3ABD700DF01C4 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA42BA3ABD700DF01C4 /* DayViewController.swift */; };
 		B903BEA72BA3CE8F00DF01C4 /* WeekPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEA62BA3CE8F00DF01C4 /* WeekPresenter.swift */; };
@@ -18,8 +17,8 @@
 		B903BEB42BA4601F00DF01C4 /* BoardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEB32BA4601F00DF01C4 /* BoardingPresenter.swift */; };
 		B903BEBC2BA47C1500DF01C4 /* DayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEBB2BA47C1500DF01C4 /* DayPresenter.swift */; };
 		B903BEBE2BA489AC00DF01C4 /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BEBD2BA489AC00DF01C4 /* NotesRepository.swift */; };
-		B903BEC22BA4948800DF01C4 /* 11.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B903BEC02BA4948800DF01C4 /* 11.xcdatamodeld */; };
 		B903BEC52BA498BE00DF01C4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B903BEC32BA498BE00DF01C4 /* Model.xcdatamodeld */; };
+		B903BECE2BA4A36C00DF01C4 /* MemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B903BECD2BA4A36C00DF01C4 /* MemoRepository.swift */; };
 		B939B0EB2B9F7807002DE69A /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EA2B9F7807002DE69A /* WeekViewController.swift */; };
 		B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0EE2B9F83AF002DE69A /* ToolBar.swift */; };
 		B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939B0F02B9F83ED002DE69A /* Buttons.swift */; };
@@ -54,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellManagement.swift; sourceTree = "<group>"; };
 		B903BEA22BA3AB4600DF01C4 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		B903BEA42BA3ABD700DF01C4 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		B903BEA62BA3CE8F00DF01C4 /* WeekPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPresenter.swift; sourceTree = "<group>"; };
@@ -65,8 +63,8 @@
 		B903BEB32BA4601F00DF01C4 /* BoardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingPresenter.swift; sourceTree = "<group>"; };
 		B903BEBB2BA47C1500DF01C4 /* DayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPresenter.swift; sourceTree = "<group>"; };
 		B903BEBD2BA489AC00DF01C4 /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
-		B903BEC12BA4948800DF01C4 /* 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 11.xcdatamodel; sourceTree = "<group>"; };
 		B903BEC42BA498BE00DF01C4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B903BECD2BA4A36C00DF01C4 /* MemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoRepository.swift; sourceTree = "<group>"; };
 		B939B0EA2B9F7807002DE69A /* WeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		B939B0EE2B9F83AF002DE69A /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		B939B0F02B9F83ED002DE69A /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 		B903BEBF2BA4945D00DF01C4 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				B903BEC02BA4948800DF01C4 /* 11.xcdatamodeld */,
 				B903BEC32BA498BE00DF01C4 /* Model.xcdatamodeld */,
 			);
 			path = models;
@@ -155,8 +152,8 @@
 		B939B0E92B9F6EEE002DE69A /* data */ = {
 			isa = PBXGroup;
 			children = (
-				B903BEA02BA3AB0000DF01C4 /* CellManagement.swift */,
 				B903BEBD2BA489AC00DF01C4 /* NotesRepository.swift */,
+				B903BECD2BA4A36C00DF01C4 /* MemoRepository.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -386,15 +383,14 @@
 				B939B0F12B9F83ED002DE69A /* Buttons.swift in Sources */,
 				B903BEB22BA4588700DF01C4 /* OnBoardingItem.swift in Sources */,
 				B939B0EF2B9F83AF002DE69A /* ToolBar.swift in Sources */,
-				B903BEC22BA4948800DF01C4 /* 11.xcdatamodeld in Sources */,
 				FB13999A2B7BDDAD00ECA39F /* SceneDelegate.swift in Sources */,
 				B903BEC52BA498BE00DF01C4 /* Model.xcdatamodeld in Sources */,
 				B903BEAB2BA3DEE900DF01C4 /* Options.swift in Sources */,
 				B903BEBE2BA489AC00DF01C4 /* NotesRepository.swift in Sources */,
 				B903BEBC2BA47C1500DF01C4 /* DayPresenter.swift in Sources */,
 				B903BEA32BA3AB4600DF01C4 /* GoalsView.swift in Sources */,
-				B903BEA12BA3AB0000DF01C4 /* CellManagement.swift in Sources */,
 				B903BEA72BA3CE8F00DF01C4 /* WeekPresenter.swift in Sources */,
+				B903BECE2BA4A36C00DF01C4 /* MemoRepository.swift in Sources */,
 				B9ED6DF62B9F597900C33173 /* WeeksViewController.swift in Sources */,
 				B903BEB02BA4580D00DF01C4 /* BoardingViewController.swift in Sources */,
 				B903BEA52BA3ABD700DF01C4 /* DayViewController.swift in Sources */,
@@ -761,16 +757,6 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		B903BEC02BA4948800DF01C4 /* 11.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B903BEC12BA4948800DF01C4 /* 11.xcdatamodel */,
-			);
-			currentVersion = B903BEC12BA4948800DF01C4 /* 11.xcdatamodel */;
-			path = 11.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		B903BEC32BA498BE00DF01C4 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -34,6 +34,7 @@ class WeeksViewController: UIViewController, WeeksView {
     
     func configuteUI() {
         configureAbout()
+        view.backgroundColor = .white
         
         for num in 1...n {
             buttons.append(Button(title: Constants.week + String(num), id: num, font: Constants.titleFont!, backgroundColor: Constants.goalsPink, borderColor: Constants.grape))
