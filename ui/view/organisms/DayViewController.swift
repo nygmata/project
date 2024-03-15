@@ -10,7 +10,7 @@ class DayViewController: UITableViewController, DayView {
     var presenter: DayViewPresenter!
     
     let cellId = "cellId"
-    var cells: [Cell] = [Cell]()
+    var cells: [Cell] = []
     var cellManagement = CellManagement()
     var id: Int
     
@@ -18,7 +18,7 @@ class DayViewController: UITableViewController, DayView {
         id = index
         super.init(nibName: nil, bundle: nil)
         
-        presenter = DayPresenter(view: self)
+        presenter = DayPresenter(view: self, id: id)
     }
     
     required init?(coder: NSCoder) {
@@ -30,23 +30,7 @@ class DayViewController: UITableViewController, DayView {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
-        cellManagement.createCells(&cells)
-        switch id {
-            case 0:
-                cellManagement.loadCellData(&cells, CellEntityMonday.self)
-            case 1:
-                cellManagement.loadCellData(&cells, CellEntityTuesday.self)
-            case 2:
-                cellManagement.loadCellData(&cells, CellEntityWednesday.self)
-            case 3:
-                cellManagement.loadCellData(&cells, CellEntityThursday.self)
-            case 4:
-                cellManagement.loadCellData(&cells, CellEntityFriday.self)
-            case 5:
-                cellManagement.loadCellData(&cells, CellEntitySaturday.self)
-            default:
-                cellManagement.loadCellData(&cells, CellEntitySunday.self)
-        }
+        cells = presenter.getData()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,22 +63,7 @@ class DayViewController: UITableViewController, DayView {
             cell.textLabel?.text = description
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
             
-            switch self.id {
-                case 0:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityMonday.self)
-                case 1:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityTuesday.self)
-                case 2:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityWednesday.self)
-                case 3:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityThursday.self)
-                case 4:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntityFriday.self)
-                case 5:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntitySaturday.self)
-                default:
-                    self.cellManagement.saveCellData(time: self.cells[indexPath.row].time, description: description, CellEntitySunday.self)
-            }
+            self.presenter.editNote(time: self.cells[indexPath.row].time, newDescription: description)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

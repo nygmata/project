@@ -104,13 +104,13 @@ class ImprovementViewController : UIViewController {
     
     @objc func textViewDidChange(_ notification: Notification) {
         if let textView = notification.object as? UITextView {
-            cellManagement.saveTextData(text: textView.text, Improvement.self)
+            cellManagement.saveTextData(text: textView.text, Improvment.self)
         }
     }
     
     func configureTextView() {
         view.addSubview(textView)
-        cellManagement.loadTextData(textView: textView, Improvement.self)
+        cellManagement.loadTextData(textView: textView, Improvment.self)
         textView.backgroundColor = Constants.goalsPink
         textView.font = Constants.titleFont
         textView.textColor = .black

@@ -16,7 +16,7 @@ class WeekViewController: UIViewController, WeekView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = WeekPresenter(view: self)
+        presenter = WeekPresenter(view: self, id: id)
         view.backgroundColor = .white
         
         for i in 0...2 {

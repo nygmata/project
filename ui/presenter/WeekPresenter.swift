@@ -12,18 +12,21 @@ protocol WeekView: AnyObject {
 }
 
 protocol WeekViewPresenter {
-    init(view: WeekView)
+    init(view: WeekView, id: Int)
     func openDay(button: UIButton)
     func openWidget(button: UIButton)
 }
 
 class WeekPresenter: WeekViewPresenter {
+    var id: Int!
     var view: WeekView
     var days: [UITableViewController] = []
     var widgets: [UIViewController] = []
     
-    required init(view: WeekView) {
+    required init(view: WeekView, id: Int) {
         self.view = view
+        
+        self.id = id
         
         widgets = [
             GoalsViewController(),
@@ -33,7 +36,7 @@ class WeekPresenter: WeekViewPresenter {
     }
     
     func openDay(button: UIButton) {
-        view.openScreen(screen: DayViewController(index: button.tag))
+        view.openScreen(screen: DayViewController(index: id*10 + button.tag))
     }
     
     func openWidget(button: UIButton) {
